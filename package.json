@@ -1,0 +1,33 @@
+{
+  "name": "heml.io",
+  "description": "HEML website",
+  "version": "1.0.0",
+  "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "classnames": "^2.2.5",
+    "gatsby": "^1.9.73",
+    "gatsby-link": "^1.6.15",
+    "gatsby-plugin-react-helmet": "^1.0.5",
+    "gatsby-remark-autolink-headers": "^1.4.7",
+    "gatsby-remark-prismjs": "^1.2.8",
+    "gatsby-source-filesystem": "^1.4.12",
+    "gatsby-transformer-remark": "^1.7.7",
+    "github-slugger": "^1.1.3",
+    "lodash": "^4.17.4",
+    "react-ace": "^5.2.1",
+    "react-split-pane": "^0.1.66",
+    "styled-jsx": "^1.0.10"
+  },
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.6.1"
+  }
+}
