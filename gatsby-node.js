@@ -16,7 +16,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
 
-  const docTemplate = path.resolve(`src/templates/doc.js`);
+  const documentationTemplate = path.resolve(`src/templates/documentation.js`);
   const redirectTemplate = path.resolve(`src/templates/redirect.js`);
 
   return graphql(`{
@@ -79,7 +79,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           else {
             createPage({
               path: getDocPath(node),
-              component: docTemplate,
+              component: documentationTemplate,
               context: { page: node, nav }
             })
           }

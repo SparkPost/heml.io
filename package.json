@@ -10,6 +10,7 @@
     "gatsby-link": "^1.6.15",
     "gatsby-plugin-netlify": "^1.0.6",
     "gatsby-plugin-react-helmet": "^1.0.5",
+    "gatsby-plugin-styled-components": "^1.0.5",
     "gatsby-remark-autolink-headers": "^1.4.7",
     "gatsby-remark-prismjs": "^1.2.8",
     "gatsby-source-filesystem": "^1.4.12",
@@ -17,8 +18,8 @@
     "github-slugger": "^1.1.3",
     "lodash": "^4.17.4",
     "react-ace": "^5.2.1",
-    "react-split-pane": "^0.1.66",
-    "styled-jsx": "^1.0.10"
+    "react-json-tree": "^0.10.9",
+    "react-split-pane": "^0.1.66"
   },
   "license": "MIT",
   "main": "n/a",
@@ -26,7 +27,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gatsby build && gatsby serve"
   },
   "devDependencies": {
     "prettier": "^1.6.1"
