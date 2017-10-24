@@ -1,33 +1,66 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import classnames from 'classnames'
-import { navigation as styles } from '../../styles'
+import styled from 'styled-components'
+
+const Wrapper = styled.nav`
+  position: fixed;
+  padding: 0 2em 4em 2em;
+  height: 100vh;
+  width: 20%;
+  overflow: auto;
+  background: #f9fbfd;
+  border-right: 1px solid #f0f0f0;
+`
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin-top: ${props => props.inner ? '1em' : '2em'};
+
+`
+
+const ListItem = styled.li`  
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-weight: 600;
+  ${props => props.inner ? `
+  font-weight: 400;
+  font-size: .9rem;
+  margin-left: 1em;
+  margin-bottom: .75em;` : ''}
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &.active {
+      color: ${props => props.theme.colors.primary};
+      font-weight: 600;
+    }
+  }
+`
 
 export default ({ currentPath, nav }) => (
-  <nav className="navigation">
-    <ul>
+  <Wrapper>
+    <List>
       {nav.map(parent => {
         return (
-          <li key={parent.path}>
+          <ListItem key={parent.path}>
             <Link to={parent.path}>{parent.title}</Link>
-            <ul>
+            <List inner>
               {parent.children.map(child => (
-                <li key={child.path}>
-                  <Link
-                    to={child.path}
-                    className={classnames({
-                      active: currentPath === child.path,
-                    })}
-                  >
-                    {child.title}
+                <ListItem key={child.path} inner>
+                  <Link to={child.path}
+                    className={classnames({ active: currentPath === child.path })} >
+                  {child.title}
                   </Link>
-                </li>
+                </ListItem>
               ))}
-            </ul>
-          </li>
+            </List>
+          </ListItem>
         )
       })}
-    </ul>
-    <style jsx>{styles}</style>
-  </nav>
+    </List>
+  </Wrapper>
 )

@@ -1,14 +1,66 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import classnames from 'classnames'
-import { header as styles } from '../styles'
+import styled from 'styled-components'
 
-const Header = ({ currentPath, fixed, nav }) => (
-  <Wrapper fixed={fixed}>
-    <header className={classnames('header', { fixed: fixed })}>
-      <h1 id="logo">
+const Logo = styled.h1`
+  font-size: 1.5em;
+  margin: 0;
+  line-height: 1em;
+  font-family: color: ${props => props.theme.monospace};
+  font-weight: 400;
+  color: ${props => props.theme.colors.primary};
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+`
+
+const Header = styled.header`
+  border-top: 3px solid ${props => props.theme.colors.primary};
+  border-bottom: 1px solid #f0f0f0;
+  position: ${props => props.fixed ? 'fixed' : 'relative'};
+  top: 0;
+  left: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25em 2em;
+  z-index: 99;
+  height: auto;
+
+  ul {
+      padding: 0;
+      list-style: none;
+      margin: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 .5em;
+  }
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+  }
+
+  .active {
+    color: ${props => props.theme.colors.primary};
+    font-weight: 600;
+  }
+`
+
+export default ({ currentPath, fixed, nav }) => (
+  <Offset fixed={fixed}>
+    <Header fixed={fixed}>
+      <Logo>
         <Link to="/">&lt;heml&gt;</Link>
-      </h1>
+      </Logo>
       {!nav ? (
         <ul>
           <li>
@@ -32,16 +84,6 @@ const Header = ({ currentPath, fixed, nav }) => (
           <li>
             <Link
               className={classnames({
-                active: currentPath.startsWith('/templates'),
-              })}
-              to="/templates"
-            >
-              Templates
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={classnames({
                 active: currentPath.startsWith('/editor'),
               })}
               to="/editor"
@@ -53,12 +95,11 @@ const Header = ({ currentPath, fixed, nav }) => (
       ) : (
         nav
       )}
-      <style jsx>{styles}</style>
-    </header>
-  </Wrapper>
+    </Header>
+  </Offset>
 )
 
-const Wrapper = ({ fixed, children }) => {
+const Offset = ({ fixed, children }) => {
   return fixed ? (
     <div>
       {children}
@@ -68,5 +109,3 @@ const Wrapper = ({ fixed, children }) => {
     children
   )
 }
-
-export default Header
