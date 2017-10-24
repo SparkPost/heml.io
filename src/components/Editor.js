@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import AceEditor from 'react-ace'
-import { defaults } from 'lodash'
+import { defaults, pick } from 'lodash'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  height: ${props => props.height};
+  width: ${props => props.width};
+
   .ace_gutter {
     background: #f9f9f9 !important;
   }
@@ -29,7 +32,7 @@ class Editor extends Component {
   }
 
   render() {
-    return this.state.mounted ? <Wrapper><AceEditor
+    return this.state.mounted ? <Wrapper height="auto" width="100%" {...pick(this.props, ['height', 'width'])}><AceEditor
     mode="xml"
     theme="github"
     width="100%"
