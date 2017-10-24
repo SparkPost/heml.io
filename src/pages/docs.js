@@ -1,5 +1,5 @@
 import React from 'react'
-import Redirect from '../components/Redirect'
+import { Redirect } from 'react-router'
 
 const Docs = () => {
   return <Redirect to="/docs/getting-started/overview" />

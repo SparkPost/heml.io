@@ -1,11 +1,67 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import styled from 'styled-components'
 import Header from '../components/Header'
-import Hero from '../components/home/Hero'
-import Demo from '../components/home/Demo'
+import Editor from '../components/Editor'
 import Button from '../components/Button'
-import { philosophy, hero } from '../styles'
+import ProgramWindow from '../components/ProgramWindow'
 
+const Hero = styled.div`
+  z-index: 1;
+  background-image: linear-gradient(120deg, ${props => props.theme.colors.primary} 0%, #68b8fe 100%);
+  color: #fff;
+  padding: 70px;
+  border-radius: 0 0 50% 50% / 4%;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    margin-top: 1.5rem;
+    font-size: 3.5em;
+    margin-bottom: .25em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 1.05em;
+    display: inline-block;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    font-weight: 300;
+  }`
+
+const PreviewButton = styled(Button)`
+  position: absolute;
+  bottom: 1em;
+  right: 2em;
+  z-index: 44;
+  margin-top: 1em;
+  box-shadow: 0 2px 5px 0px rgba(43, 63, 76, 0.18);
+  border: 1px solid #eeeeee;
+
+  &:hover {
+    box-shadow: 0 3px 7px 0px rgba(43, 63, 76, 0.2);
+  }
+`
+const Philosophy = styled.section`
+  background: #f9f8f9;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -2em;
+  padding: 5em 2em 2em 2em;
+
+  div {
+    width: 30%;
+  }
+
+  h3 {
+    color: ${props => props.theme.colors.primary};
+  }
+
+  p {
+    margin-top: 0;
+  }`
 
 class IndexPage extends Component {
   componentDidMount() {
@@ -18,7 +74,7 @@ class IndexPage extends Component {
         <Header currentPath={this.props.location.pathname} fixed />
         <Hero>
           <section
-            style={{ width: '50%', float: 'left', marginLeft: '3%' }}>
+            style={{ width: '50%', marginLeft: '3%' }}>
             <h2>Quickly craft clean, responsive emails</h2>
             <h3>
               HEML is a open source framework for coding HTML and plaintext
@@ -32,11 +88,18 @@ class IndexPage extends Component {
               Docs
             </Button>
           </section>
-          <section style={{ width: '45%', float: 'right' }}>
-            <Demo code={previewHEML.trim()} />
+          <section style={{ width: '45%' }}>
+            <ProgramWindow title="welcome.heml">
+              <Editor
+                value={previewHEML}
+                setOptions={{ maxLines: 20 }}
+                onChange={html => localStorage.setItem('homeEditor', html)}
+              />
+              <PreviewButton to="/editor#homeEditor">Preview</PreviewButton>
+            </ProgramWindow>
           </section>
         </Hero>
-        <section className="philosophy">
+        <Philosophy>
           <div>
             <h3>Native Feel</h3>
             <p>
@@ -58,21 +121,18 @@ class IndexPage extends Component {
               them with the world, or keep em to yourself. Your choice.
             </p>
           </div>
-          <style jsx>{philosophy}</style>
-        </section>
+        </Philosophy>
       </div>
     )
   }
 }
 
-const previewHEML = `
-<heml>
+const previewHEML = `<heml>
   <head>
     <subject>Welcome to HEML!</subject>
     <style>
       #container {
         width: 100%;
-        max-width: 640px;
       }
     </style>
   </head>
