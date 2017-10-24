@@ -92,7 +92,7 @@ class IndexPage extends Component {
             <ProgramWindow title="welcome.heml">
               <Editor
                 value={previewHEML}
-                setOptions={{ maxLines: 20 }}
+                setOptions={{ minLines: 20, maxLines: 20 }}
                 onChange={html => localStorage.setItem('homeEditor', html)}
               />
               <PreviewButton to="/editor#homeEditor">Preview</PreviewButton>
