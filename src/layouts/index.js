@@ -3,16 +3,26 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import classnames from 'classnames'
-import styles from '../styles'
+import styled, { ThemeProvider } from 'styled-components'
+
+import '../styles.css'
+
+const theme = {
+  monospace: `'Source Code Pro', monospace`,
+  colors: {
+    primary: '#2097e4',
+    text: '#333'
+  }
+}
 
 const DefaultLayout = ({ children }) => (
   <div>
     <Helmet title="HEML" />
-    {children()}
-    <style jsx global>
-      {styles}
-    </style>
+    <ThemeProvider theme={theme}>
+      {children()}
+    </ThemeProvider>
   </div>
+
 )
 
 DefaultLayout.propTypes = {
