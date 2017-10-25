@@ -105,6 +105,18 @@ You can use a combination of defining exact column-sizing and auto-sizing to sim
 </container>
 ```
 
+## Attributes
+
+<div class="attributes-table">
+
+| | |
+| --- | --- |
+| **small**<small>number</small> | Sets the column width on small screens |
+| **large**<small>number</small> | Sets the column width on large screens |
+
+</div>
+
+
 ### Styling
 
 <div class="fixed-table bordered-table">
