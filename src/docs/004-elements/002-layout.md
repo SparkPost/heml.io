@@ -36,6 +36,11 @@ If you want to change the maximum width of your container, you can do with a sma
 </heml>
 ```
 
+### Styling
+
+The container element supports the standard [block and text element styles](/docs/styling/using-css#block-elements).
+
+
 ## Rows
 
 Rows wrap all columns in your layout. They separate your columns into sections.
@@ -46,6 +51,10 @@ Rows wrap all columns in your layout. They separate your columns into sections.
   <row> <!-- more columns here --> </row>
 </container>
 ```
+
+### Styling
+
+The only CSS that gets applied to rows is `margin`.
 
 ## Columns
 
@@ -95,3 +104,27 @@ You can use a combination of defining exact column-sizing and auto-sizing to sim
   </row>
 </container>
 ```
+
+## Attributes
+
+<div class="attributes-table">
+
+| | |
+| --- | --- |
+| **small**<small>number</small> | Sets the column width on small screens |
+| **large**<small>number</small> | Sets the column width on large screens |
+
+</div>
+
+
+### Styling
+
+<div class="fixed-table bordered-table">
+
+| | | | |
+| --- | --- | --- | --- |
+| padding | display | background | border |
+| box-shadow | transition | text | font |
+| color | | | |
+
+</div>
