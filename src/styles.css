@@ -59,3 +59,12 @@ p {
 hr {
   border: 1px solid #f0f0f0;
 }
+
+
+a {
+  color: inherit; 
+}
+
+a:hover {
+  color: #2097e4;
+}

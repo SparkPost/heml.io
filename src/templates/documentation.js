@@ -112,6 +112,11 @@ const DocContents = styled.div`
     font-size: .875em;
     font-weight: 400;
     line-height: 1em;
+  }
+
+  img {
+    display: block;
+    margin: 2rem auto;
   }`
 
 const DocHeader = styled.header`
