@@ -17,7 +17,7 @@ Some HEML elements share the same tag names as HTML elements, such as `<button>`
 
 All HEML elements support the following HTML attributes. These will be passed down directly to the rendered HTML.
 
-**Note:** As of now you may not use `style` attribute for inline styles. Add an ID to the element and any styles will be inlined during build time.
+**Note:** You can use inline styles on HEML elements
 
 | | | | |
 | --- | --- | --- | --- |
