@@ -25,7 +25,7 @@ Each HEML element has a list of the CSS properties it specifically allows. They 
 | --- | --- | --- | --- |
 | margin | padding | width  | height |
 | display | background | border | box-shadow |
-| transition | | | |
+| transition | text | font | color |
 
 </div>
 
