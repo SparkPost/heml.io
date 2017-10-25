@@ -15,7 +15,7 @@ Images are a powerful tool in your emails. However, they are widely misused. You
 
 ### Inferring the width
 
-HEML lets you infer the width from the image file. If the image doesn't exist it will fallback to `auto`.
+HEML lets you infer the width from the image file. If you don't want to set the width value manually, `infer` will set it for you.
 
 ```xml
 <img src="http://example.com/my-image.jpg" alt="my image" infer />
