@@ -1,6 +1,6 @@
 ---
 title: Image
-description: The <img> element add an image in your email.
+description: The <img> element adds an image in your email.
 ---
 
 Images are a powerful tool in your emails. However, they are widely misused. You should not use images for displaying text, buttons, or anything else that has a native equivalent. This leads to bloated emails, invisible content, and accessibility issues. Each image translates to a `<img />` tag in HTML.
@@ -15,7 +15,7 @@ Images are a powerful tool in your emails. However, they are widely misused. You
 
 ### Inferring the width
 
-HEML lets you infer the width from the image file. If the image doesn't exist it will fallback to `auto`.
+HEML lets you infer the width from the image file. If you don't want to set the width value manually, `infer` will set it for you.
 
 ```xml
 <img src="http://example.com/my-image.jpg" alt="my image" infer />
@@ -39,7 +39,7 @@ This element supports the [global attributes](/elements/overview#global-attribut
 | **alt**<small>string</small> | Sets the image description. Defaults to `""`. |
 | **width**<small>pixels</small> | Sets the exact width of the image. |
 | **height**<small>pixels</small> | Sets the exact height of the image. |
-| **infer**<small>string/boolean</small> | This should be used instead of the width and height. If present the images width will be set to the exact width of the actual image. If set to `retina`, its width will be half of the image width.  |
+| **infer**<small>string/boolean</small> | This should be used instead of the width and height. If present, the image width will be set to the exact width of the actual image. If set to `retina`, its width will be half of the image width.  |
 | **srcset**<small>list</small> | Directly passes through to the image. See the [Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) for more. |
 
 </div>

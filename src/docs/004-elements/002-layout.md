@@ -2,7 +2,7 @@
 title: Layout
 ---
 
-Layouts are key when designing emails. HEML provides a layout system to allow driven by three elements: `<container>`, `<row>`, and `<column>`.
+Layouts are key when designing emails. HEML provides a layout system driven by three elements: `<container>`, `<row>`, and `<column>`.
 
 ## Containers
 
@@ -49,9 +49,9 @@ Rows wrap all columns in your layout. They separate your columns into sections.
 
 ## Columns
 
-Columns are exactly what they sound like. They break up content into different sections in a row. The grid system is based on a 12 column system similar to [Bootstrap](https://getbootstrap.com/). We suggest having no more then 4 columns per row to keep your design as flexible as possible. However, there may be cases where you may want to divide it up more.
+Columns are exactly what they sound like. They break up content into different sections in a row. The grid system is based on a 12 column system similar to [Bootstrap](https://getbootstrap.com/). We suggest having no more then 4 columns per row to keep your design as flexible as possible. However, there may be cases where you want to divide it up more.
 
-By default columns will distribute the available space on desktop and will grow to fill the entire row on mobile.
+By default, columns will be distributed among the available space on desktop and will grow to fill the entire row on mobile.
 
 ### Auto sizing columns
 
@@ -85,7 +85,7 @@ You can use the `large` and `small` attributes to set the size on your columns o
 
 ### Mix and match
 
-You can use a combination of defining exact column sizing and auto sizing to simplify your templates.
+You can use a combination of defining exact column-sizing and auto-sizing to simplify your templates.
 
 ```xml
 <container>

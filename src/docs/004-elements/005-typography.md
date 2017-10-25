@@ -3,7 +3,7 @@ title: Typography
 description: Use the same HTML markup in HEML for your typography
 ---
 
-When writing your content you can use the tags you are used to using. It is important to note that HEML bundles fixes for common issues with these tags so you are free to use them safely. They all support the [global attributes](/elements/overview#global-attributes).
+When writing your content, use the same HTML markup tags you are accustomed to. It is important to note that HEML bundles fixes for common issues with these tags so you are free to use them safely in email. They all support the [global attributes](/elements/overview#global-attributes).
 
 All text should be in a header, paragraph, or list for your styling to work as expected.
 

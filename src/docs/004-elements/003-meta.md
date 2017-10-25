@@ -26,7 +26,7 @@ This tag sets the subject of the email. It translates to the `<title>` tag and i
 
 ## Preview
 
-This sets the preview text for the email. This should not be used along preheader text as they are generally mutually exclusive. View [client support](https://litmus.com/blog/the-ultimate-guide-to-preview-text-support) to learn more.
+This sets the preview text for the email. This should not be used with preheader text as they are generally mutually exclusive. View [client support](https://litmus.com/blog/the-ultimate-guide-to-preview-text-support) to learn more.
 
 ```xml
 <head>
@@ -76,7 +76,7 @@ The `<font>` tag lets you import fonts from remote sources safely.
 
 ## Base
 
-Sets all relative urls in the `href` and `src` attributes to be absolute from the base's `href` attribute. For example, `<img src="/my-picture.png">` would become `<img src="https://example.com/my-picture.png">` if you set the base to `http://example.com`.
+This sets all relative urls in the `href` and `src` attributes to be absolute from the base's `href` attribute. For example, `<img src="/my-picture.png">` would become `<img src="https://example.com/my-picture.png">` if you set the base to `http://example.com`.
 
 ```xml
 <head>

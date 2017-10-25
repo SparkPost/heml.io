@@ -2,11 +2,9 @@
 title: Using CSS
 ---
 
-HEML styling is driven through CSS. Your CSS will be modified to be as safe as possible to send.
+HEML styling is driven through CSS. You can write your CSS per usual, just as if you were using HTML. Your CSS will then be modified to be in a safe email format.
 
 ## Example
-
-You can write your CSS the same way you would with HTML.
 
 ```css
 block {
@@ -17,7 +15,7 @@ block {
 
 ## What properties are allowed?
 
-Each HEML element has a list of the CSS properties it specifically allows. They fall into two categories: block and text elements. Its safe to assume that elements will support the following properties. 
+Each HEML element has a list of the CSS properties it specifically allows. They fall into two categories: block and text elements. It's safe to assume that elements will support the following properties. 
 
 ### Block elements
 
@@ -44,11 +42,11 @@ Each HEML element has a list of the CSS properties it specifically allows. They 
 
 ## What color formats are supported?
 
-You can use basically any color format in CSS. You want `rgba(0,0,0,0.5)`? You got it. You want `skyblue`. No problem. HEML supports all of them.
+You can use basically any color format in CSS. You want `rgba(0,0,0,0.5)`? You got it. You want `skyblue`? No problem. HEML supports all of them.
 
 ## What units are supported?
 
-We suggest using only `px` and `%`. If for some reason, you use other units such as `em` or `vh` HEML will simply pass those through.
+We suggest using only `px` and `%`. If you use other units such as `em` or `vh`, HEML will simply pass those through.
 
 ## Using media queries
 
@@ -58,7 +56,7 @@ You can use media queries safely in HEML. We suggest targeting anything smaller 
 
 ## Changing element displays
 
-Because the markup is tied to specific display properties it is not recommended to change the `display` property to `inline` for block elements, or to `block` for inline elements. You can use the `display` property to show and hide elements safely, though.
+Because the markup is tied to specific display properties, it is not recommended to change the `display` property to `inline` for block elements, or to `block` for inline elements. You can use the `display` property to show and hide elements safely, though.
 
 ```css
 /* You can hide the block element with display: none; */
