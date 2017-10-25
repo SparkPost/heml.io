@@ -3,7 +3,7 @@ title: Overview
 ---
 
 
-HEML follows the same structure as HTML. Every HEML email opens with a `<heml>` element, similarly to the `<html>` tag in HTML. Inside the `<heml` element should live a single `<head>` and a `<body>`. The head will contain all metadata and non-visible content about the email. The body will hold all content for the email.
+HEML follows the same structure as HTML. Every HEML email opens with a `<heml>` element, similarly to the `<html>` tag in HTML. Inside the `<heml>` element should live a single `<head>` and a `<body>`. The head will contain all metadata and non-visible content about the email. The body will hold all content for the email.
 
 ```xml
 <heml>
