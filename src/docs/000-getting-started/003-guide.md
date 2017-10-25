@@ -6,7 +6,7 @@ title: HEML Guide
 
 Lets build out a simple welcome email with HEML!
 
-The first thing we'll want to do for our email is add our `<heml>`, `<head>`, and `<body>` elements. We'll add our styles and meta elements in the head, and our content in the body.
+The first thing we'll want to do for our email is add our `<heml>`, `<head>`, and `<body>` elements. We'll add our style and meta elements in the head, and our content in the body.
 
 ```xml
 <heml>
@@ -17,7 +17,7 @@ The first thing we'll want to do for our email is add our `<heml>`, `<head>`, an
 
 ## Our metadata
 
-We'll add a couple of meta elements to start: `<subject>` and `<preview>`. Our subject will appear in the title if the email is viewed in a browser. The preview will show up in certain clients, like Gmail or Apple Mail, that show a snippet of what's inside an email before you open it.
+We'll add a couple of meta elements to start: `<subject>` and `<preview>`. Our subject will appear in the title if the email is viewed in a browser. The preview will show up in certain clients, like Gmail or Apple Mail, which show a snippet of what's inside an email before you open it.
 
 ```xml
 <!-- inside the head -->
@@ -28,7 +28,7 @@ We'll add a couple of meta elements to start: `<subject>` and `<preview>`. Our s
 
 ## The layout 
 
-Inside of the body, add a basic one column [layout](http://heml.io/docs/elements/layout). This will be 600 pixels wide or 100% percent of the client, which ever comes first.
+Inside the body, add a basic one column [layout](http://heml.io/docs/elements/layout). This will be 600 pixels wide, or 100% percent of the client, whichever comes first.
 
 ```xml
 <!-- inside the body -->
@@ -49,14 +49,14 @@ Inside of our column, lets create a header and paragraph welcoming the user.
 <p>Thanks for giving HEML a try! Let us know if you run into any issues or build something awesome with it!</p>
 ```
 
-Next, lets add another row, this time with three columns. Inside we'll explain some fun ways to use email.
+Next, lets add another row, this time with three columns. Inside them, we'll explain some fun ways to use email.
 
 ```xml
 <!-- after the first row, inside the container -->
 <row>
   <column>
     <h3>Make games</h3>
-    <p>The dynamic duo, camiah, have made some awesome games in emails!</p>
+    <p>The dynamic duo, Camiah, have made some awesome games in emails!</p>
     <button href="https://codepen.io/reallygoodemails/pen/WGzdXk">Sweep those bombs 💣</button>
   </column>
   <column>
@@ -72,7 +72,7 @@ Next, lets add another row, this time with three columns. Inside we'll explain s
 </row>
 ```
 
-Why not also drop in a horizontal rule between our two rows to give them some space.
+Let's also drop in a horizontal rule between our two rows to give them some space.
 
 ```xml
 ...
