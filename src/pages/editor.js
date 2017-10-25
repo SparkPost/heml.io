@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import SplitPane from 'react-split-pane'
 import styled from 'styled-components'
-// import axios from 'axios'
+import axios from 'axios'
 import JSONTree from 'react-json-tree'
-import { isEmpty } from 'lodash'
+import { isEmpty, debounce } from 'lodash'
 import Header from '../components/Header'
 import Editor from '../components/Editor'
 import HemlResults from '../components/HemlResults'
-// import HEML from  '../../../heml/packages/heml'
 
 try {
   require('brace/mode/xml')
@@ -39,7 +38,16 @@ const jsonTheme = {
   base0F: '#b72dd2'
 }
 
-const HEML = (contents) => Promise.resolve({ html: contents, metadata: {} })
+const HEML = debounce((contents) => {
+  return axios({
+    method: 'post',
+    url: 'https://heml-api.herokuapp.com/',
+    data: {
+      heml: contents
+    }
+  })
+  .then(({ data }) => data)
+}, 500)
 
 const defaultHEML = `<heml>
   <head>
@@ -181,7 +189,6 @@ class EditorPage extends Component {
     localStorage.setItem('heml', heml)
 
     return HEML(heml).then(({ html, errors, metadata, id }) => {
-      console.log('changed')
       this.setState({ html, errors, metadata })
     })
   }
