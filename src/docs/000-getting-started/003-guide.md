@@ -57,7 +57,7 @@ Next, lets add another row, this time with three columns. Inside them, we'll exp
   <column>
     <h3>Make games</h3>
     <p>The dynamic duo, Camiah, have made some awesome games in emails!</p>
-    <button href="https://codepen.io/reallygoodemails/pen/WGzdXk">Sweep those bombs 💣</button>
+    <button href="https://codepen.io/reallygoodemails/pen/WGzdXk">Sweep bombs 💣</button>
   </column>
   <column>
     <h3>Show a slideshow</h3>
@@ -76,16 +76,14 @@ Let's also drop in a horizontal rule between our two rows to give them some spac
 
 ```xml
 ...
-</row>
+<!-- in between the two rows -->
 <hr>
-<row>
-...
 ```
 
 
 You should have something that looks like this.
 
-![insert picture]()
+![email without styling](/media/guide-1.png)
 
 ## Painting the canvas 🎨
 
@@ -100,9 +98,7 @@ To do this, we'll add a `<style>` tag to our `<head>` with some CSS.
   }
 
   container {
-    margin: 10px auto;
     background: white;
-    padding: 10px;
   }
 
   hr {
@@ -135,6 +131,10 @@ This all feels a little tight though, so lets add some spacing and make it a bit
   }
 </style>
 ```
+
+And there we go! Our awesome email, ready for the world!
+
+![finished email](/media/guide-2.png)
 
 [Edit this email](/editor#guide)
 
