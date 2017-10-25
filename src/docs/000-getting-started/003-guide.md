@@ -6,7 +6,7 @@ title: HEML Guide
 
 Lets build out a simple welcome email with HEML!
 
-The first thing we'll want to do for our email is add our `heml`, `head`, and `body` elements. We'll add our styles and meta elements in the head, and our content in the body.
+The first thing we'll want to do for our email is add our `<heml>`, `<head>`, and `<body>` elements. We'll add our styles and meta elements in the head, and our content in the body.
 
 ```xml
 <heml>
@@ -17,7 +17,7 @@ The first thing we'll want to do for our email is add our `heml`, `head`, and `b
 
 ## Our metadata
 
-We'll add a couple of meta elements to start: `subject` and `preview`. Our subject will appear in the title if the email is viewed in a browser. The preview will show up in certain clients, like Gmail or Apple Mail, that show a snippet of what's inside an email before you open it.
+We'll add a couple of meta elements to start: `<subject>` and `<preview>`. Our subject will appear in the title if the email is viewed in a browser. The preview will show up in certain clients, like Gmail or Apple Mail, that show a snippet of what's inside an email before you open it.
 
 ```xml
 <!-- inside the head -->
@@ -87,11 +87,11 @@ You should have something that looks like this.
 
 ![insert picture]()
 
-## Painting our canvas 🎨
+## Painting the canvas 🎨
 
 Now that we have our email built out, lets make it look good. We'll add some styles so we have a white container and some black buttons.
 
-To do this, we'll add a `style` tag to our `head` with some CSS.
+To do this, we'll add a `<style>` tag to our `<head>` with some CSS.
 
 ```html
 <style>

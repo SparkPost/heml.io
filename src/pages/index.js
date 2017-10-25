@@ -77,11 +77,9 @@ class IndexPage extends Component {
             style={{ width: '50%', marginLeft: '3%' }}>
             <h2>Quickly craft clean, responsive emails</h2>
             <h3>
-              HEML is a open source framework for coding HTML and plaintext
-              emails. It focuses on abstracting away the complexities of email so
-              you can send without worry.
+              HEML is an open source markup language for building responsive email. It gives you the native power of HTML without having to deal with all of the email quirks. HEML makes building emails as easy as building websites.
             </h3>
-            <Button to="/guide" large>
+            <Button to="/docs/getting-started/guide" large>
               Get Started
             </Button>
             <Button to="/docs/getting-started/overview" large transparent>

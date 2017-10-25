@@ -65,8 +65,8 @@ export default ({ currentPath, fixed, nav }) => (
         <ul>
           <li>
             <Link
-              className={classnames({ active: currentPath === '/guide' })}
-              to="/guide"
+              className={classnames({ active: currentPath === '/docs/getting-started/guide' })}
+              to="/docs/getting-started/guide"
             >
               Guide
             </Link>
@@ -74,7 +74,7 @@ export default ({ currentPath, fixed, nav }) => (
           <li>
             <Link
               className={classnames({
-                active: currentPath.startsWith('/docs'),
+                active: currentPath.startsWith('/docs') && currentPath !== '/docs/getting-started/guide',
               })}
               to="/docs/getting-started/overview"
             >
