@@ -19,6 +19,28 @@ const Hero = styled.div`
   display: flex;
   justify-content: space-between;
 
+  section:first-child {
+    width: 50%;
+    margin-left: 3%;
+  }
+
+  section:last-child {
+    width: 45%;
+  }
+
+  @media ${props => props.theme.tablet} {
+    flex-direction: column;
+    padding: 20px;
+
+    section:first-child, section:last-child {
+      width: 100%;
+    }
+
+    section:first-child {
+      margin: 0 0 2em 0;
+    }
+  }
+
   h2 {
     margin-top: 1.5rem;
     font-size: 3.5em;
@@ -80,7 +102,7 @@ class IndexPage extends Component {
       <div>
         <Header currentPath={this.props.location.pathname} fixed />
         <Hero>
-          <section style={{ width: '50%', marginLeft: '3%' }}>
+          <section>
             <h2>Quickly craft clean, responsive emails</h2>
             <h3>
               HEML is an open source markup language for building responsive
@@ -95,7 +117,7 @@ class IndexPage extends Component {
               Docs
             </Button>
           </section>
-          <section style={{ width: '45%' }}>
+          <section>
             <ProgramWindow title="welcome.heml">
               <Editor
                 value={previewHEML}

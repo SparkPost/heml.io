@@ -11,6 +11,14 @@ const Wrapper = styled.nav`
   overflow: auto;
   background: #f9fbfd;
   border-right: 1px solid #f0f0f0;
+
+  @media ${props => props.theme.mobile} {
+    width: 100%;
+    position: relative;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
 `
 
 const List = styled.ul`

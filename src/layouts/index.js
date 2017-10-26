@@ -9,6 +9,8 @@ import '../styles.css'
 
 const theme = {
   monospace: `'Source Code Pro', monospace`,
+  tablet: `only screen and (max-width: 800px)`,
+  mobile: `only screen and (max-width: 650px)`,
   colors: {
     primary: '#2097e4',
     text: '#333',

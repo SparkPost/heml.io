@@ -10,6 +10,10 @@ const Wrapper = styled.aside`
   width: 20%;
   overflow: auto;
   right: 0;
+
+  @media ${props => props.theme.mobile} {
+    display: none;
+  }
 `
 const List = styled.ul`
   padding: 2rem 0;

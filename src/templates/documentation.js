@@ -12,6 +12,11 @@ const Documentation = styled.main`
   width: 60%;
   margin-left: 20%;
   padding: 2em 4em;
+
+  @media ${props => props.theme.mobile} {
+    width: 100%;
+    margin: 0;
+  }
 `
 
 const DocContents = styled.div`
