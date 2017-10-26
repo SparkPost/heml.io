@@ -28,19 +28,6 @@ const Hero = styled.div`
     width: 45%;
   }
 
-  @media ${props => props.theme.tablet} {
-    flex-direction: column;
-    padding: 20px;
-
-    section:first-child, section:last-child {
-      width: 100%;
-    }
-
-    section:first-child {
-      margin: 0 0 2em 0;
-    }
-  }
-
   h2 {
     margin-top: 1.5rem;
     font-size: 3.5em;
@@ -56,6 +43,27 @@ const Hero = styled.div`
     margin-top: 0;
     margin-bottom: 1.5em;
     font-weight: 300;
+  }
+
+  @media ${props => props.theme.tablet} {
+    padding: 50px 15px;
+    flex-direction: column;
+
+    h2 {
+      font-size: 2.5em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+    section:first-child, section:last-child {
+      width: 100%;
+    }
+
+    section:first-child {
+      margin: 0 0 2em 0;
+    }
   }
 `
 
@@ -89,6 +97,15 @@ const Philosophy = styled.section`
 
   p {
     margin-top: 0;
+  }
+
+  @media ${props => props.theme.tablet} {
+    flex-direction: column;
+
+    div {
+      width: 90%;
+      margin: auto;
+    }
   }
 `
 
