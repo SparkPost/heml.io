@@ -15,12 +15,12 @@ const List = styled.ul`
   padding: 2rem 0;
   display: block;
   color: #666;
-  font-size: .875rem;
+  font-size: 0.875rem;
   list-style: none;
 `
 
 const ListItem = styled.li`
-  margin: 0 0 .5rem ${props => props.depth - 2}rem;
+  margin: 0 0 0.5rem ${props => props.depth - 2}rem;
 
   a {
     color: inherit;
@@ -28,7 +28,7 @@ const ListItem = styled.li`
     text-decoration: none;
   }
 `
-ListItem.defaultProps = { depth: 2 } 
+ListItem.defaultProps = { depth: 2 }
 
 const Divider = styled.li`
   margin: 1em 0 1em 0;
@@ -39,7 +39,6 @@ export default ({ headings, extras }) => {
   const slugger = new GithubSlugger()
   const mainHeaders = headings.filter(({ depth }) => depth <= 3)
   if (mainHeaders.length + keys(extras).length < 3) return <aside />
-
 
   return (
     <Wrapper>

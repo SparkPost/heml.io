@@ -20,7 +20,7 @@ const Logo = styled.h1`
 const Header = styled.header`
   border-top: 3px solid ${props => props.theme.colors.primary};
   border-bottom: 1px solid #f0f0f0;
-  position: ${props => props.fixed ? 'fixed' : 'relative'};
+  position: ${props => (props.fixed ? 'fixed' : 'relative')};
   top: 0;
   left: 0;
   background: white;
@@ -33,14 +33,14 @@ const Header = styled.header`
   height: auto;
 
   ul {
-      padding: 0;
-      list-style: none;
-      margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 0;
   }
 
   li {
     display: inline-block;
-    margin: 0 .5em;
+    margin: 0 0.5em;
   }
 
   a {
@@ -65,7 +65,9 @@ export default ({ currentPath, fixed, nav }) => (
         <ul>
           <li>
             <Link
-              className={classnames({ active: currentPath === '/docs/getting-started/guide' })}
+              className={classnames({
+                active: currentPath === '/docs/getting-started/guide',
+              })}
               to="/docs/getting-started/guide"
             >
               Guide
@@ -74,7 +76,9 @@ export default ({ currentPath, fixed, nav }) => (
           <li>
             <Link
               className={classnames({
-                active: currentPath.startsWith('/docs') && currentPath !== '/docs/getting-started/guide',
+                active:
+                  currentPath.startsWith('/docs') &&
+                  currentPath !== '/docs/getting-started/guide',
               })}
               to="/docs/getting-started/overview"
             >

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-
 const Iframe = styled.div`
   border: 0;
   width: 100%;
   height: ${props => props.height};
-  display: ${props => props.show ? 'block' : 'none'}`
+  display: ${props => (props.show ? 'block' : 'none')};
+`
 
 const Pre = styled.pre`
   width: 100%;
@@ -14,16 +14,21 @@ const Pre = styled.pre`
   overflow: scroll;
   word-break: normal;
   margin: 0;
-  display: ${props => props.show ? 'block' : 'none'}`
+  display: ${props => (props.show ? 'block' : 'none')};
+`
 
-export default (props) =>(
+export default props => (
   <div>
-    <Iframe show={props.tab == 'preview'}  height={props.height} dangerouslySetInnerHTML={{ __html: `<iframe src=${`data:text/html;charset=utf-8,${encodeURI(props.html)}`} style="height:100%; width:100%; border: 0;"></iframe>` }} />
-    <Pre
-      id="html"
-      show={props.tab == 'code'}
+    <Iframe
+      show={props.tab == 'preview'}
       height={props.height}
-    >
+      dangerouslySetInnerHTML={{
+        __html: `<iframe src=${`data:text/html;charset=utf-8,${encodeURI(
+          props.html
+        )}`} style="height:100%; width:100%; border: 0;"></iframe>`,
+      }}
+    />
+    <Pre id="html" show={props.tab == 'code'} height={props.height}>
       {props.html}
     </Pre>
   </div>

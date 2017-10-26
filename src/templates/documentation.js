@@ -19,9 +19,9 @@ const DocContents = styled.div`
    * Code 💻
    */
   code {
-    background: #F4F7FB;
-    padding: 0 .25em;
-    font-size: .95em;
+    background: #f4f7fb;
+    padding: 0 0.25em;
+    font-size: 0.95em;
     border-radius: 3px;
     font-family: ${props => props.theme.monspace};
   }
@@ -30,7 +30,7 @@ const DocContents = styled.div`
     background: #f9fbfd;
     border: 1px solid #ececec;
     border-radius: 3px;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     overflow: auto;
     margin: 0 0 1em 0;
   }
@@ -41,7 +41,7 @@ const DocContents = styled.div`
     padding: 0;
     border-radius: 0;
   }
-  
+
   /**
    * Tables 
    */
@@ -55,22 +55,22 @@ const DocContents = styled.div`
     border-radius: 3px;
   }
 
-  
   th {
     font-weight: 600;
   }
 
   h3 {
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
 
   th:empty {
     display: none;
   }
 
-  td, th {
-    text-align: left; 
-    padding: .375em .75em .375em .75em;
+  td,
+  th {
+    text-align: left;
+    padding: 0.375em 0.75em 0.375em 0.75em;
   }
 
   td {
@@ -82,7 +82,8 @@ const DocContents = styled.div`
     border-width: 0 1px 1px 0;
   }
 
-  .bordered-table td, .bordered-table th {
+  .bordered-table td,
+  .bordered-table th {
     border: 1px solid #ececec;
     border-right: 0;
     border-bottom-width: 0;
@@ -108,8 +109,8 @@ const DocContents = styled.div`
   small {
     color: #888;
     display: block;
-    margin-top: .25em;
-    font-size: .875em;
+    margin-top: 0.25em;
+    font-size: 0.875em;
     font-weight: 400;
     line-height: 1em;
   }
@@ -119,21 +120,27 @@ const DocContents = styled.div`
     margin: 2rem auto;
     max-width: 600px;
     width: 98%;
-  }`
+  }
+`
 
 const DocHeader = styled.header`
-  padding: 0 0 .25em 0;
+  padding: 0 0 0.25em 0;
   margin-bottom: 1.5em;
   border-bottom: 2px solid #f0f0f0;
 
   h1 {
     margin-top: 0;
-    margin-bottom: .5em;
-  }`
+    margin-bottom: 0.5em;
+  }
+`
 
 export default ({ pathContext, location }) => {
   const { page, nav } = pathContext
-  const description = page.frontmatter.description ? (<p>{page.frontmatter.description}</p>) : '';
+  const description = page.frontmatter.description ? (
+    <p>{page.frontmatter.description}</p>
+  ) : (
+    ''
+  )
 
   const extras = pickBy(
     mapKeys(

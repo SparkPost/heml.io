@@ -7,7 +7,11 @@ import ProgramWindow from '../components/ProgramWindow'
 
 const Hero = styled.div`
   z-index: 1;
-  background-image: linear-gradient(120deg, ${props => props.theme.colors.primary} 0%, #68b8fe 100%);
+  background-image: linear-gradient(
+    120deg,
+    ${props => props.theme.colors.primary} 0%,
+    #68b8fe 100%
+  );
   color: #fff;
   padding: 70px;
   border-radius: 0 0 50% 50% / 4%;
@@ -17,7 +21,7 @@ const Hero = styled.div`
   h2 {
     margin-top: 1.5rem;
     font-size: 3.5em;
-    margin-bottom: .25em;
+    margin-bottom: 0.25em;
     font-weight: bold;
     letter-spacing: 1.5px;
     line-height: 1.05em;
@@ -29,7 +33,8 @@ const Hero = styled.div`
     margin-top: 0;
     margin-bottom: 1.5em;
     font-weight: 300;
-  }`
+  }
+`
 
 const PreviewButton = styled(Button)`
   position: absolute;
@@ -61,7 +66,8 @@ const Philosophy = styled.section`
 
   p {
     margin-top: 0;
-  }`
+  }
+`
 
 class IndexPage extends Component {
   componentDidMount() {
@@ -73,11 +79,13 @@ class IndexPage extends Component {
       <div>
         <Header currentPath={this.props.location.pathname} fixed />
         <Hero>
-          <section
-            style={{ width: '50%', marginLeft: '3%' }}>
+          <section style={{ width: '50%', marginLeft: '3%' }}>
             <h2>Quickly craft clean, responsive emails</h2>
             <h3>
-              HEML is an open source markup language for building responsive email. It gives you the native power of HTML without having to deal with all of the email quirks. HEML makes building emails as easy as building websites.
+              HEML is an open source markup language for building responsive
+              email. It gives you the native power of HTML without having to
+              deal with all of the email quirks. HEML makes building emails as
+              easy as building websites.
             </h3>
             <Button to="/docs/getting-started/guide" large>
               Get Started

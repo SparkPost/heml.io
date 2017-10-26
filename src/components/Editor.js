@@ -32,20 +32,31 @@ class Editor extends Component {
   }
 
   render() {
-    return this.state.mounted ? <Wrapper height="auto" width="100%" {...pick(this.props, ['height', 'width'])}><AceEditor
-    mode="xml"
-    theme="github"
-    width="100%"
-    height="auto"
-    onLoad={(editor) => editor.selection.moveCursorToPosition({row: 0, column: 0})}
-    focus
-    {...this.props}
-    setOptions={defaults({}, this.props.setOptions || {}, {
-      enableEmmet: true,
-      useSoftTabs: true,
-      tabSize: 2,
-    })}
-     /></Wrapper> : <div style={{textAlign: 'center' }}>Loading editor...</div>
+    return this.state.mounted ? (
+      <Wrapper
+        height="auto"
+        width="100%"
+        {...pick(this.props, ['height', 'width'])}
+      >
+        <AceEditor
+          mode="xml"
+          theme="github"
+          width="100%"
+          height="auto"
+          onLoad={editor =>
+            editor.selection.moveCursorToPosition({ row: 0, column: 0 })}
+          focus
+          {...this.props}
+          setOptions={defaults({}, this.props.setOptions || {}, {
+            enableEmmet: true,
+            useSoftTabs: true,
+            tabSize: 2,
+          })}
+        />
+      </Wrapper>
+    ) : (
+      <div style={{ textAlign: 'center' }}>Loading editor...</div>
+    )
   }
 }
 

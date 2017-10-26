@@ -38,9 +38,7 @@ const Bar = styled.div`
 const Content = styled.div`
   min-height: 150px;
   white-space: pre-wrap;
-  color: ${props => props.theme.colors.text}
-
-  .ace-github .ace_gutter {
+  color: ${props => props.theme.colors.text} .ace-github .ace_gutter {
     background: #f9f9f9;
   }
 
@@ -50,10 +48,9 @@ const Content = styled.div`
   }
 `
 
-export default (props) => (
-    <Window>
-      <Bar>{props.title || ''}</Bar>
-      <Content>{props.children}</Content>    
-    </Window>
-  )
-
+export default props => (
+  <Window>
+    <Bar>{props.title || ''}</Bar>
+    <Content>{props.children}</Content>
+  </Window>
+)

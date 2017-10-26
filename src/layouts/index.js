@@ -11,18 +11,15 @@ const theme = {
   monospace: `'Source Code Pro', monospace`,
   colors: {
     primary: '#2097e4',
-    text: '#333'
-  }
+    text: '#333',
+  },
 }
 
 const DefaultLayout = ({ children }) => (
   <div>
     <Helmet title="HEML" />
-    <ThemeProvider theme={theme}>
-      {children()}
-    </ThemeProvider>
+    <ThemeProvider theme={theme}>{children()}</ThemeProvider>
   </div>
-
 )
 
 DefaultLayout.propTypes = {

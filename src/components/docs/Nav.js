@@ -16,21 +16,21 @@ const Wrapper = styled.nav`
 const List = styled.ul`
   list-style: none;
   padding: 0;
-  margin-top: ${props => props.inner ? '1em' : '2em'};
-
+  margin-top: ${props => (props.inner ? '1em' : '2em')};
 `
 
-const ListItem = styled.li`  
+const ListItem = styled.li`
   margin: 0 0 1em 0;
   padding: 0;
   font-weight: 600;
-  ${props => props.inner ? `
+  ${props =>
+    props.inner
+      ? `
   font-weight: 400;
   font-size: .9rem;
   margin-left: 1em;
-  margin-bottom: .75em;` : ''}
-
-  a {
+  margin-bottom: .75em;`
+      : ''} a {
     color: inherit;
     text-decoration: none;
 
@@ -51,9 +51,13 @@ export default ({ currentPath, nav }) => (
             <List inner>
               {parent.children.map(child => (
                 <ListItem key={child.path} inner>
-                  <Link to={child.path}
-                    className={classnames({ active: currentPath === child.path })} >
-                  {child.title}
+                  <Link
+                    to={child.path}
+                    className={classnames({
+                      active: currentPath === child.path,
+                    })}
+                  >
+                    {child.title}
                   </Link>
                 </ListItem>
               ))}
