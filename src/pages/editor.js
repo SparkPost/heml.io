@@ -81,12 +81,12 @@ const defaultHEML = `<heml>
 </heml>`
 
 const ResizeCover = styled.div`
-  height: '100%',
-  width: '100%',
-  top: 0,
-  left: 0,
-  position: 'absolute',
-  display: ${props => (props.resizing ? 'block' : 'none')}
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: ${props => (props.resizing ? 'block' : 'none')};
 `
 
 const Wrapper = styled.div`
@@ -293,7 +293,7 @@ class EditorPage extends Component {
                   tab={this.state.tab}
                 />
                 <ResizeCover
-                  resizing={this.state.resizing && this.state.tab === 'preview'}
+                  resizing={this.state.resizing}
                 />
               </div>
             </SplitPane>

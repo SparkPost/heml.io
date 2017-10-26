@@ -21,6 +21,8 @@ const Button = styled(Link)`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 30px 0px rgba(30, 112, 167, 0.6);
+     color: ${props =>
+    props.transparent ? 'inherit' : props.theme.colors.primary};
   }
 `
 
