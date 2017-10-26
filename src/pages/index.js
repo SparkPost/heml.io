@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Editor from '../components/Editor'
 import Button from '../components/Button'
 import ProgramWindow from '../components/ProgramWindow'
@@ -128,6 +129,7 @@ class IndexPage extends Component {
             </p>
           </div>
         </Philosophy>
+        <Footer />
       </div>
     )
   }
