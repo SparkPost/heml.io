@@ -9,6 +9,31 @@ import Header from '../components/Header'
 import Editor from '../components/Editor'
 import HemlResults from '../components/HemlResults'
 
+const TabSet = styled.div`
+  color: white;
+  background: #F9F9F9;
+  border: 1px solid #ddd;
+  position: absolute;
+  right: 2em;
+  border-radius: 4px;
+  overflow: hidden;`
+
+
+const Tab = styled.button`
+  background: ${props => props.active ? props.theme.colors.primary : 'white'};
+  color: ${props => props.active ? 'white' : '#333'};
+  padding: .75em 1.25em;
+  font: inherit;
+  border: 0;
+  width: 7em;
+  border-radius: 0;
+  cursor: pointer;
+  outline: 0;
+
+  &:first-child {
+    border-right: 1px solid #ddd;
+  }`
+
 try {
   require('brace/mode/xml')
   require('brace/theme/github')
@@ -203,13 +228,25 @@ class EditorPage extends Component {
     this.renderHEML(heml)
   }
 
+  toggleTab() {
+    this.setState({ tab: this.state.tab === 'preview' ? 'code' : 'preview' })
+  }
+
   render() {
     return (
       <div>
         <Helmet>
           <title>Editor &middot; HEML </title>
         </Helmet>
-        <Header currentPath={this.props.location.pathname} fixed />
+        <Header
+          currentPath={this.props.location.pathname}
+          nav={[
+            <TabSet>
+              <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab()}>Preview</Tab>
+              <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab()}>Code</Tab>
+            </TabSet>
+          ]}
+          fixed />
         <Wrapper>
           <div id="editor">
             <SplitPane
