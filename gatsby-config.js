@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'GTM-5Q6TX6G',
+        trackingId: 'UA-53870770-5',
       },
     },
     `gatsby-plugin-netlify`
