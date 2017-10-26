@@ -124,7 +124,6 @@ You can use a combination of defining exact column-sizing and auto-sizing to sim
 | | | | |
 | --- | --- | --- | --- |
 | padding | display | background | border |
-| box-shadow | transition | text | font |
-| color | | | |
+| box-shadow | text | font | color |
 
 </div>
