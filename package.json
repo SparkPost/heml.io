@@ -9,6 +9,7 @@
     "crypto-random-string": "^1.0.0",
     "gatsby": "^1.9.73",
     "gatsby-link": "^1.6.15",
+    "gatsby-plugin-google-analytics": "^1.0.10",
     "gatsby-plugin-netlify": "^1.0.6",
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-styled-components": "^1.0.5",

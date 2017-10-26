@@ -23,6 +23,12 @@ module.exports = {
       }
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'GTM-5Q6TX6G',
+      },
+    },
     `gatsby-plugin-netlify`
   ],
 }
