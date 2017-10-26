@@ -117,6 +117,8 @@ const DocContents = styled.div`
   img {
     display: block;
     margin: 2rem auto;
+    max-width: 600px;
+    width: 98%;
   }`
 
 const DocHeader = styled.header`
