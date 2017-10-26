@@ -27,7 +27,7 @@ export default props => (
       show={props.tab == 'preview'}
       height={props.height}
       dangerouslySetInnerHTML={{
-        __html: `<iframe src=${`data:text/html;charset=utf-8,${props.errors.length > 0 ? buildErrorPage(props.errors) : encodeURI(props.html)}`} style="height:100%; width:100%; border: 0;"></iframe>`,
+        __html: `<iframe src=${`data:text/html;charset=utf-8,${props.errors.length > 0 ? encodeURI(buildErrorPage(props.errors)) : encodeURI(props.html)}`} style="height:100%; width:100%; border: 0;"></iframe>`,
       }}
     />
     <Textarea disabled wrap='off' id="html" show={props.tab == 'code'} height={props.height} value={props.html} />
