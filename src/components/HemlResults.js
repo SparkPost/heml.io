@@ -79,7 +79,7 @@ function buildErrorPage(errors = []) {
         ${errors.map((error) => `
           <div class="message">
             <div class="selector">&gt; ${error.selector}</div>
-            <span class="hidden">&gt;</span> ${error.toString()}
+            <span class="hidden">&gt;</span> ${error.message}
           </div>`).join('')}
       </div>
       <script src="/reload/reload.js"> </script>
