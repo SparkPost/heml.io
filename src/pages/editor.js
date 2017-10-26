@@ -241,7 +241,7 @@ class EditorPage extends Component {
         <Header
           currentPath={this.props.location.pathname}
           nav={[
-            <TabSet>
+            <TabSet key="1">
               <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab()}>Preview</Tab>
               <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab()}>Code</Tab>
             </TabSet>

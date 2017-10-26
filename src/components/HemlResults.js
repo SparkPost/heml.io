@@ -8,12 +8,16 @@ const Iframe = styled.div`
   display: ${props => (props.show ? 'block' : 'none')};
 `
 
-const Pre = styled.pre`
+const Textarea = styled.textarea`
   width: 100%;
   height: ${props => props.height};
   overflow: scroll;
-  word-break: normal;
   margin: 0;
+  border: 0;
+  font: inherit;
+  padding: 10px;
+  background: #FBFCFE;
+  font-family: ${props => props.theme.monospace};
   display: ${props => (props.show ? 'block' : 'none')};
 `
 
@@ -28,9 +32,7 @@ export default props => (
         )}`} style="height:100%; width:100%; border: 0;"></iframe>`,
       }}
     />
-    <Pre id="html" show={props.tab == 'code'} height={props.height}>
-      {props.html}
-    </Pre>
+    <Textarea disabled wrap='off' id="html" show={props.tab == 'code'} height={props.height} value={props.html} />
   </div>
 )
 
