@@ -52,10 +52,6 @@ Rows wrap all columns in your layout. They separate your columns into sections.
 </container>
 ```
 
-### Styling
-
-The only CSS that gets applied to rows is `margin`.
-
 ## Columns
 
 Columns are exactly what they sound like. They break up content into different sections in a row. The grid system is based on a 12 column system similar to [Bootstrap](https://getbootstrap.com/). We suggest having no more then 4 columns per row to keep your design as flexible as possible. However, there may be cases where you want to divide it up more.

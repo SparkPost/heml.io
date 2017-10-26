@@ -136,5 +136,3 @@ And there we go! Our awesome email, ready for the world!
 
 ![finished email](/media/guide-2.png)
 
-[Edit this email](/editor#guide)
-
