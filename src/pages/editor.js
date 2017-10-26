@@ -12,14 +12,14 @@ import HemlResults from '../components/HemlResults'
 try {
   require('brace/mode/xml')
   require('brace/theme/github')
-}
-catch(e) {
+} catch (e) {
   // swallow the errors
 }
 
 const jsonTheme = {
   scheme: 'atelier lakeside',
-  author: 'bram de haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)',
+  author:
+    'bram de haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)',
   base00: '#161b1d',
   base01: '#1f292e',
   base02: '#516d7b',
@@ -35,19 +35,18 @@ const jsonTheme = {
   base0C: '#2d8f6f',
   base0D: '#257fad',
   base0E: '#5d5db1',
-  base0F: '#b72dd2'
+  base0F: '#b72dd2',
 }
 
-const HEML = debounce((contents) => {
+const HEML = contents => {
   return axios({
     method: 'post',
     url: 'https://heml-api.herokuapp.com/',
     data: {
-      heml: contents
-    }
-  })
-  .then(({ data }) => data)
-}, 500)
+      heml: contents,
+    },
+  }).then(({ data }) => data)
+}
 
 const defaultHEML = `<heml>
   <head>
@@ -62,11 +61,12 @@ const ResizeCover = styled.div`
   top: 0,
   left: 0,
   position: 'absolute',
-  display: ${props => props.resizing ? 'block' : 'none'}
+  display: ${props => (props.resizing ? 'block' : 'none')}
 `
 
 const Wrapper = styled.div`
-  #editor, #editor > div {
+  #editor,
+  #editor > div {
     padding: 68px 0 0 0;
     margin-top: -68px;
   }
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
 
   .Resizer {
     box-sizing: border-box;
-    background: #F9F9F9;
+    background: #f9f9f9;
     z-index: 1;
     background-clip: padding-box;
     border-style: solid;
@@ -97,10 +97,9 @@ const Wrapper = styled.div`
     padding: 4px;
 
     &:before {
-      content: "Metadata"
+      content: 'Metadata';
     }
   }
-
 
   .Resizer.vertical {
     width: 15px;
@@ -154,7 +153,8 @@ const Wrapper = styled.div`
     background: #ffa;
     margin: 5rem;
     flex: 1;
-  }` 
+  }
+`
 
 class EditorPage extends Component {
   constructor(props) {
@@ -166,12 +166,24 @@ class EditorPage extends Component {
       metadata: {},
       errors: [],
       height: 100,
+      resultsHeight: '100%',
       resizing: false,
     }
+
+    this.renderHEML = debounce(
+      heml =>
+        HEML(heml).then(({ html, errors, metadata, id }) => {
+          this.setState({ html, errors, metadata })
+        }),
+      500
+    )
   }
 
   componentDidMount() {
-    this.setState({ height: document.body.clientHeight - 200 })
+    this.setState({
+      height: document.body.clientHeight - 200,
+      resultsHeight: document.body.clientHeight - 68,
+    })
 
     if (this.props.location.hash.indexOf('#homeEditor') >= 0) {
       location.hash = ''
@@ -188,11 +200,8 @@ class EditorPage extends Component {
     this.setState({ heml })
     localStorage.setItem('heml', heml)
 
-    return HEML(heml).then(({ html, errors, metadata, id }) => {
-      this.setState({ html, errors, metadata })
-    })
+    this.renderHEML(heml)
   }
-
 
   render() {
     return (
@@ -207,29 +216,48 @@ class EditorPage extends Component {
               split="vertical"
               defaultSize="40%"
               onDragStarted={() => this.setState({ resizing: true })}
-              onDragFinished={() => this.setState({ resizing: false })} >
+              onDragFinished={() => this.setState({ resizing: false })}
+            >
               <SplitPane
                 pane2Style={{ background: '#fbfcfe' }}
                 split="horizontal"
                 defaultSize={this.state.height}
                 onChange={height => (
                   this.setState({ height }), console.log(this.state.height)
-                )} >
+                )}
+              >
                 <Editor
                   mode="xml"
                   theme="github"
                   height={this.state.height + 'px'}
                   width="100%"
                   value={this.state.heml}
-                  onChange={heml => this.updateHEML(heml)} />
+                  onChange={heml => this.updateHEML(heml)}
+                />
                 <div id="meta">
-                  {!isEmpty(this.state.metadata) && <JSONTree hideRoot={true} theme={jsonTheme} data={this.state.metadata} />}
-                  {isEmpty(this.state.metadata) && <h3 style={{ color: '#888', textAlign: 'center' }}>no metadata</h3>}
+                  {!isEmpty(this.state.metadata) && (
+                    <JSONTree
+                      hideRoot={true}
+                      theme={jsonTheme}
+                      data={this.state.metadata}
+                    />
+                  )}
+                  {isEmpty(this.state.metadata) && (
+                    <h3 style={{ color: '#888', textAlign: 'center' }}>
+                      no metadata
+                    </h3>
+                  )}
                 </div>
               </SplitPane>
-              <div>
-                <HemlResults html={this.state.html} tab={this.state.tab} />
-                <ResizeCover resizing={this.state.resizing} />
+              <div style={{ height: '100%', width: '100%' }}>
+                <HemlResults
+                  height={this.state.resultsHeight + 'px'}
+                  html={this.state.html}
+                  tab={this.state.tab}
+                />
+                <ResizeCover
+                  resizing={this.state.resizing && this.state.tab === 'preview'}
+                />
               </div>
             </SplitPane>
           </div>
