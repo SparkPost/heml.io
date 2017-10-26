@@ -137,19 +137,14 @@ const previewHEML = `<heml>
   <head>
     <subject>Welcome to HEML!</subject>
     <style>
-      #container {
-        width: 100%;
-      }
+      body { background: SkyBlue; }
+      h1 { color: DarkViolet; }
     </style>
   </head>
   <body>
-    <block id="container">
-      <row>
-        <column>
-          <h1>Explore the world of email! 💌</h1>
-        </column>
-      </row>
-    </block>
+    <container>
+      <marquee><h1>Explore the world of email! 💌</h1></marquee>
+    </container>
   </body>
 </heml>
 `

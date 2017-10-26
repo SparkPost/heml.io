@@ -75,8 +75,16 @@ const HEML = contents => {
 
 const defaultHEML = `<heml>
   <head>
+    <subject>Welcome to HEML!</subject>
+    <style>
+      body { background: SkyBlue; }
+      h1 { color: DarkViolet; }
+    </style>
   </head>
   <body>
+    <container>
+      <marquee><h1>Explore the world of email! 💌</h1></marquee>
+    </container>
   </body>
 </heml>`
 
@@ -290,6 +298,7 @@ class EditorPage extends Component {
                 <HemlResults
                   height={this.state.resultsHeight + 'px'}
                   html={this.state.html}
+                  errors={this.state.errors}
                   tab={this.state.tab}
                 />
                 <ResizeCover
