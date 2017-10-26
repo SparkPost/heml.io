@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import randomString from 'crypto-random-string'
 import styled from 'styled-components'
 
-const Iframe = styled.div`
+const Iframe = styled.iframe`
   border: 0;
   width: 100%;
   height: ${props => props.height};
@@ -21,18 +22,32 @@ const Textarea = styled.textarea`
   display: ${props => (props.show ? 'block' : 'none')};
 `
 
-export default props => (
-  <div>
-    <Iframe
-      show={props.tab == 'preview'}
-      height={props.height}
-      dangerouslySetInnerHTML={{
-        __html: `<iframe src=${`data:text/html;charset=utf-8,${props.errors.length > 0 ? encodeURI(buildErrorPage(props.errors)) : encodeURI(props.html)}`} style="height:100%; width:100%; border: 0;"></iframe>`,
-      }}
-    />
-    <Textarea disabled wrap='off' id="html" show={props.tab == 'code'} height={props.height} value={props.html} />
-  </div>
-)
+export default class HemlResults extends Component {
+  constructor() {
+    super()
+    this.id = `preview-${randomString(5)}`
+  }
+
+  componentDidUpdate() {
+    const iframe = document.getElementById(this.id)
+    iframe.contentWindow.document.open()
+    iframe.contentWindow.document.write(this.props.html)
+    iframe.contentWindow.document.close()
+  }
+
+  render() {
+    return (
+      <div>
+        <Iframe
+          id={this.id}
+          show={this.props.tab == 'preview'}
+          height={this.props.height}
+        />
+        <Textarea readonly wrap='off' id="html" show={this.props.tab == 'code'} height={this.props.height} value={this.props.html} />
+      </div>
+    )
+  }
+}
 
 function buildErrorPage(errors = []) {
   const title = `${errors.length} validation ${errors.length > 1 ? 'errors' : 'error'}`

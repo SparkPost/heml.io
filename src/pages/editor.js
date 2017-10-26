@@ -14,7 +14,8 @@ const TabSet = styled.div`
   background: #F9F9F9;
   border: 1px solid #ddd;
   position: absolute;
-  right: 2em;
+  right: 2rem;
+  top: .5rem;
   border-radius: 4px;
   overflow: hidden;`
 
