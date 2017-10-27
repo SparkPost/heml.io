@@ -89,7 +89,7 @@ heml(`
         <row>
           <column><p>hi there!</p></column>
         </row>
-      </cotnainer>
+      </container>
     </body>
   </heml>
 `, options)
