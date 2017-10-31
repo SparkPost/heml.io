@@ -29,7 +29,7 @@ Each HEML element is equivalent to some predefined HTML. The rendering engine go
 ### The CSS
 
 The CSS contained in style tags is parsed and transformed to fix as many simple issues as possible. A good example of this is using fully expanded, uppercase hexadecimal colors (`#33AABB`) instead of the shorthand, lowercase values (`#3ab`).
-<br>**See:** [hemlstyles](https://github.com/SparkPost/hemlstyles)
+<br>**See:** [hemlstyles](https://github.com/SparkPost/heml/tree/master/packages/heml-styles)
 
 Any CSS that targets a HEML element is then transformed into new selectors, to properly style the rendered HTML. Finally, any pseudo-element selectors are replaced with the proper CSS selectors, making the CSS work as expected.
-<br>**See:** [postcss-element-expander](https://github.com/SparkPost/postcss-element-expander)
+<br>**See:** [postcss-element-expander](https://github.com/SparkPost/heml/tree/master/packages/heml-styles/src/plugins/postcss-element-expander)
