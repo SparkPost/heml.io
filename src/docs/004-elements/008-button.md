@@ -46,7 +46,6 @@ This element supports the [global attributes](/elements/overview#global-attribut
 | | |
 | --- | --- |
 | **href**<small>url</small> | Set the destination address for when the button is clicked. Defaults to `#`. |
-| **align**<small>string</small> | Set the button alignment. Options are `left`, `center`, `right`. Defaults to `left`. |
 
 </div>
 
