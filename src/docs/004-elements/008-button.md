@@ -15,7 +15,7 @@ description: "Use the button element to add a button-styled link."
 ### Center a button
 
 ```xml
-<button href="https://heml.io" align="center">Click me!!</button>
+<button href="https://heml.io" style="margin: auto;">Click me!!</button>
 ```
 
 
