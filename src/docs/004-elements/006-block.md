@@ -38,7 +38,7 @@ This element supports the [global attributes](/elements/overview#global-attribut
 
 ## Styling
 
-The button supports the standard [block element styles](/docs/styling/using-css#block-elements).
+The block supports the standard [block element styles](/docs/styling/using-css#block-elements).
 
 ## Pseudo elements
 
