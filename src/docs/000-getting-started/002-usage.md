@@ -70,10 +70,10 @@ In your JavaScript file, import HEML and pass it as a string to be rendered.
 const heml = require('heml');
 
 const options = {
-  validate: 'soft' // validation levels - 'strict'|'soft'|'none'
-  cheerio: {} // config passed to cheerio parser
+  validate: 'soft', // validation levels - 'strict'|'soft'|'none'
+  cheerio: {}, // config passed to cheerio parser
   juice: {},
-  beautify: {} // config passed to js-beautify html method
+  beautify: {}, // config passed to js-beautify html method
   elements: [
     // any custom elements you want to use
   ]
