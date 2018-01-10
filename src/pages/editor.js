@@ -4,6 +4,7 @@ import SplitPane from 'react-split-pane'
 import styled from 'styled-components'
 import axios from 'axios'
 import JSONTree from 'react-json-tree'
+import ToggleDisplay from 'react-toggle-display';
 import { isEmpty, debounce } from 'lodash'
 import Header from '../components/Header'
 import Editor from '../components/Editor'
@@ -202,6 +203,7 @@ class EditorPage extends Component {
       height: 100,
       resultsHeight: '100%',
       resizing: false,
+      showEmailField: false,
     }
 
     this.renderHEML = debounce(
@@ -241,6 +243,10 @@ class EditorPage extends Component {
     this.setState({ tab: this.state.tab === 'preview' ? 'code' : 'preview' })
   }
 
+  toggleEmailField() {
+    this.setState({ showEmailField: !this.state.showEmailField })
+  }
+
   render() {
     return (
       <div>
@@ -253,6 +259,10 @@ class EditorPage extends Component {
             <TabSet key="1">
               <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab()}>Preview</Tab>
               <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab()}>Code</Tab>
+              <ToggleDisplay show={this.state.showEmailField}>
+                <input type="text" placeholder="you@example.com" />
+              </ToggleDisplay>
+              <Tab active={true} onClick={() => this.toggleEmailField()}>Send</Tab>
             </TabSet>
           ]}
           fixed />
