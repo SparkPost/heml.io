@@ -32,7 +32,7 @@ const Tab = styled.button`
   cursor: pointer;
   outline: 0;
 
-  &:first-child {
+  &:not(:last-child) {
     border-right: 1px solid #ddd;
   }`
 
@@ -239,12 +239,12 @@ class EditorPage extends Component {
     this.renderHEML(heml)
   }
 
-  toggleTab() {
-    this.setState({ tab: this.state.tab === 'preview' ? 'code' : 'preview' })
+  toggleTab(activeTab) {
+    this.setState({ showEmailField: false, tab: activeTab })
   }
 
   toggleEmailField() {
-    this.setState({ showEmailField: !this.state.showEmailField })
+    this.setState({ showEmailField: !this.state.showEmailField, tab: 'send' })
   }
 
   render() {
@@ -257,12 +257,12 @@ class EditorPage extends Component {
           currentPath={this.props.location.pathname}
           nav={[
             <TabSet key="1">
-              <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab()}>Preview</Tab>
-              <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab()}>Code</Tab>
+              <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab('preview')}>Preview</Tab>
+              <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab('code')}>Code</Tab>
               <ToggleDisplay show={this.state.showEmailField}>
                 <input type="text" placeholder="you@example.com" />
               </ToggleDisplay>
-              <Tab active={true} onClick={() => this.toggleEmailField()}>Send</Tab>
+              <Tab active={this.state.tab === 'send'} onClick={() => this.toggleEmailField()}>Send</Tab>
             </TabSet>
           ]}
           fixed />
