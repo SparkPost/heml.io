@@ -75,6 +75,17 @@ const HEML = contents => {
   }).then(({ data }) => data)
 }
 
+const SEND = (contents, email) => {
+  return axios({
+    method: 'post',
+    url: 'https://heml-api.herokuapp.com/',
+    data: {
+      heml: contents,
+      email: email,
+    },
+  });
+}
+
 const defaultHEML = `<heml>
   <head>
     <subject>Welcome to HEML!</subject>
@@ -203,6 +214,7 @@ class EditorPage extends Component {
       height: 100,
       resultsHeight: '100%',
       resizing: false,
+      email: '',
       showEmailField: false,
     }
 
@@ -232,6 +244,10 @@ class EditorPage extends Component {
     }
   }
 
+  updateEmail(event) { //FIXME: test if we can remove the "onChange" handler from the input. it seems like "the road to learn react" says we don't need that.
+    this.setState({email: event.target.value})
+  }
+
   updateHEML(heml) {
     this.setState({ heml })
     localStorage.setItem('heml', heml)
@@ -247,6 +263,13 @@ class EditorPage extends Component {
     this.setState({ showEmailField: !this.state.showEmailField, tab: 'send' })
   }
 
+  sendEmail(event) {
+    const email = this.state.email;
+    const heml = this.state.heml;
+    SEND(email, heml).then(() => alert("email sent successfully. check your inbox."));
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
@@ -259,9 +282,11 @@ class EditorPage extends Component {
             <TabSet key="1">
               <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab('preview')}>Preview</Tab>
               <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab('code')}>Code</Tab>
-              <ToggleDisplay show={this.state.showEmailField}>
-                <input type="text" placeholder="you@example.com" />
-              </ToggleDisplay>
+              <form onSubmit={(event) => this.sendEmail(event)}>
+                <ToggleDisplay show={this.state.showEmailField}>
+                  <input type="text" placeholder="you@example.com" onChange={(event) => this.updateEmail(event)} value={this.state.value} />
+                </ToggleDisplay>
+              </form>
               <Tab active={this.state.tab === 'send'} onClick={() => this.toggleEmailField()}>Send</Tab>
             </TabSet>
           ]}
