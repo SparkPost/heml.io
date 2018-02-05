@@ -75,10 +75,10 @@ const HEML = contents => {
   }).then(({ data }) => data)
 }
 
-const SEND = (contents, email) => {
+const SEND = (email, contents) => {
   return axios({
     method: 'post',
-    url: 'https://heml-api.herokuapp.com/',
+    url: 'https://heml-api.herokuapp.com/send',
     data: {
       heml: contents,
       email: email,
