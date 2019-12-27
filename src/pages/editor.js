@@ -4,6 +4,7 @@ import SplitPane from 'react-split-pane'
 import styled from 'styled-components'
 import axios from 'axios'
 import JSONTree from 'react-json-tree'
+import ToggleDisplay from 'react-toggle-display';
 import { isEmpty, debounce } from 'lodash'
 import Header from '../components/Header'
 import Editor from '../components/Editor'
@@ -31,7 +32,7 @@ const Tab = styled.button`
   cursor: pointer;
   outline: 0;
 
-  &:first-child {
+  &:not(:last-child) {
     border-right: 1px solid #ddd;
   }`
 
@@ -72,6 +73,17 @@ const HEML = contents => {
       heml: contents,
     },
   }).then(({ data }) => data)
+}
+
+const SEND = (email, contents) => {
+  return axios({
+    method: 'post',
+    url: 'https://heml-api.herokuapp.com/send',
+    data: {
+      heml: contents,
+      email: email,
+    },
+  });
 }
 
 const defaultHEML = `<heml>
@@ -202,6 +214,8 @@ class EditorPage extends Component {
       height: 100,
       resultsHeight: '100%',
       resizing: false,
+      email: '',
+      showEmailField: false,
     }
 
     this.renderHEML = debounce(
@@ -230,6 +244,10 @@ class EditorPage extends Component {
     }
   }
 
+  updateEmail(event) { //FIXME: test if we can remove the "onChange" handler from the input. it seems like "the road to learn react" says we don't need that.
+    this.setState({email: event.target.value})
+  }
+
   updateHEML(heml) {
     this.setState({ heml })
     localStorage.setItem('heml', heml)
@@ -237,8 +255,19 @@ class EditorPage extends Component {
     this.renderHEML(heml)
   }
 
-  toggleTab() {
-    this.setState({ tab: this.state.tab === 'preview' ? 'code' : 'preview' })
+  toggleTab(activeTab) {
+    this.setState({ showEmailField: false, tab: activeTab })
+  }
+
+  toggleEmailField() {
+    this.setState({ showEmailField: !this.state.showEmailField, tab: 'send' })
+  }
+
+  sendEmail(event) {
+    const email = this.state.email;
+    const heml = this.state.heml;
+    SEND(email, heml).then(() => alert("email sent successfully. check your inbox."));
+    event.preventDefault();
   }
 
   render() {
@@ -251,8 +280,14 @@ class EditorPage extends Component {
           currentPath={this.props.location.pathname}
           nav={[
             <TabSet key="1">
-              <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab()}>Preview</Tab>
-              <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab()}>Code</Tab>
+              <Tab active={this.state.tab === 'preview'} onClick={() => this.toggleTab('preview')}>Preview</Tab>
+              <Tab active={this.state.tab === 'code'} onClick={() => this.toggleTab('code')}>Code</Tab>
+              <form onSubmit={(event) => this.sendEmail(event)}>
+                <ToggleDisplay show={this.state.showEmailField}>
+                  <input type="text" placeholder="you@example.com" onChange={(event) => this.updateEmail(event)} value={this.state.value} />
+                </ToggleDisplay>
+              </form>
+              <Tab active={this.state.tab === 'send'} onClick={() => this.toggleEmailField()}>Send</Tab>
             </TabSet>
           ]}
           fixed />

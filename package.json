@@ -21,7 +21,8 @@
     "lodash": "^4.17.4",
     "react-ace": "^5.2.1",
     "react-json-tree": "^0.10.9",
-    "react-split-pane": "^0.1.66"
+    "react-split-pane": "^0.1.66",
+    "react-toggle-display": "^2.2.0"
   },
   "license": "MIT",
   "main": "n/a",
