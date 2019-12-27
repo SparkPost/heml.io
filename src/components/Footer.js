@@ -12,7 +12,7 @@ const Content = styled.div`
 export default () => (
   <Footer>
     <Content>
-      <div>Made with ❤️ by <a href="https://twitter.com/SparkPost">@SparkPost</a> &nbsp; &nbsp; &bull; &nbsp; &nbsp; Questions? Ask <a href="https://twitter.com/theavigoldman">@theavigoldman</a></div>
+      <div>Made with ❤️ by <a href="https://twitter.com/SparkPost">@SparkPost</a></div>
     </Content>
   </Footer>
 )
