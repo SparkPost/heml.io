@@ -111,7 +111,7 @@ The `<meta>` element is used for defining any metadata that is not set by the ot
 
 ```xml
 <head>
-  <meta name="author" content="Avi Goldman" />
+  <meta name="author" content="SparkPost" />
 </head>
 ```
 
@@ -127,6 +127,6 @@ By default HEML adds the following meta tags.
 
 ```json
 "metadata": {
-  "meta": [ { "name": "author", "content": "Avi Goldman" } ... ]
+  "meta": [ { "name": "author", "content": "SparkPost" } ... ]
 }
 ```
