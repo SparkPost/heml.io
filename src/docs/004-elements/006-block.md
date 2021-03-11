@@ -34,7 +34,7 @@ The block element is useful for a safe way to add a generic block element into y
 
 ## Attributes
 
-This element supports the [global attributes](/elements/overview#global-attributes).
+This element supports the [global attributes](/docs/elements/overview#global-attributes).
 
 ## Styling
 

@@ -14,7 +14,7 @@ description: Use the <a> element to add a link to another page or a section in t
 
 ## Attributes
 
-This element supports the [global attributes](/elements/overview#global-attributes).
+This element supports the [global attributes](/docs/elements/overview#global-attributes).
 
 <div class="attributes-table">
 

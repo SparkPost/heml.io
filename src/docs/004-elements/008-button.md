@@ -39,7 +39,7 @@ description: "Use the button element to add a button-styled link."
 
 ## Attributes
 
-This element supports the [global attributes](/elements/overview#global-attributes).
+This element supports the [global attributes](/docs/elements/overview#global-attributes).
 
 <div class="attributes-table">
 
