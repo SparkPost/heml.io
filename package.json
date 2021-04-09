@@ -5,7 +5,7 @@
   "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
   "dependencies": {
     "axios": "^0.21.1",
-    "classnames": "^2.2.5",
+    "classnames": "^2.3.1",
     "crypto-random-string": "^1.0.0",
     "gatsby": "^1.9.279",
     "gatsby-link": "^1.6.46",
