@@ -32,6 +32,6 @@
     "test": "gatsby build && gatsby serve"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "prettier": "^2.2.1"
   }
 }
