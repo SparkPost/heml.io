@@ -7,7 +7,7 @@ Images are a powerful tool in your emails. However, they are widely misused. You
 
 ## Examples
 
-### Basic image 
+### Basic image
 
 ```xml
 <img src="http://example.com/my-image.jpg" alt="my image" width="100" />
@@ -29,7 +29,7 @@ If you are using a retina sized image you can set `infer=retina` which will set 
 
 ## Attributes
 
-This element supports the [global attributes](/elements/overview#global-attributes).
+This element supports the [global attributes](/docs/elements/overview#global-attributes).
 
 <div class="attributes-table">
 
